@@ -11,7 +11,7 @@ class CitSong():
             self.makeFile()
 
     def getData(self, page:int):
-        self.url = f'https://teksciory.interia.pl/szukaj?page={page}&q=darmowe+teksty+i+nuty+polskich+piosenek&t=lyric&sort=score&dr=all'
+        self.url = f'https://teksciory.interia.pl/szukaj?page={page + 1}&q=darmowe+teksty+i+nuty+polskich+piosenek&t=lyric&sort=score&dr=all'
         pageContent = requests.get(self.url, timeout=8).text
 
         self.soup = BeautifulSoup(pageContent, 'html5lib')
@@ -47,7 +47,7 @@ class CitSong():
         # self.eraseData()
         
 if __name__ == "__main__":
-    model = CitSong(2, 'data.json')
+    model = CitSong(3, 'data.json')
     model()
 
 
