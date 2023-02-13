@@ -1,402 +1,122 @@
 [
-  {
-    "artist": "Piosenki dla Dzieci",
-    "songName": "Radiowe nuty (Radiowe nutki)"
-  },
-  {
-    "artist": "Zenek Kupatasa",
-    "songName": "Darmowe przytulasy"
-  },
-  {
-    "artist": "Płomień 81",
-    "songName": "Tekst"
-  },
-  {
-    "artist": "Zelo PTP",
-    "songName": "Ślizgam się tekst"
-  },
-  {
-    "artist": "Owal/Emcedwa feat. Dj-Ean",
-    "songName": "Pliki i teksty"
-  },
-  {
-    "artist": "Rembol",
-    "songName": "Piosenka z tekstów z OME.TV"
-  },
-  {
-    "artist": "Bayer Full",
-    "songName": "Polskie kwiaty"
-  },
-  {
-    "artist": "SOLEO & Talisman",
-    "songName": "Polskie Maniury"
-  },
-  {
-    "artist": "Seweryn Krajewski",
-    "songName": "Polskie"
-  },
-  {
-    "artist": "Flexxip",
-    "songName": "Teksty do beat"
-  },
-  {
-    "artist": "Piosenki dla Dzieci",
-    "songName": "Radiowe nuty (Radiowe nutki)"
-  },
-  {
-    "artist": "Zenek Kupatasa",
-    "songName": "Darmowe przytulasy"
-  },
-  {
-    "artist": "Płomień 81",
-    "songName": "Tekst"
-  },
-  {
-    "artist": "Zelo PTP",
-    "songName": "Ślizgam się tekst"
-  },
-  {
-    "artist": "Owal/Emcedwa feat. Dj-Ean",
-    "songName": "Pliki i teksty"
-  },
-  {
-    "artist": "Rembol",
-    "songName": "Piosenka z tekstów z OME.TV"
-  },
-  {
-    "artist": "Bayer Full",
-    "songName": "Polskie kwiaty"
-  },
-  {
-    "artist": "SOLEO & Talisman",
-    "songName": "Polskie Maniury"
-  },
-  {
-    "artist": "Seweryn Krajewski",
-    "songName": "Polskie"
-  },
-  {
-    "artist": "Flexxip",
-    "songName": "Teksty do beat"
-  },
-  {
-    "artist": "Piersi",
-    "songName": "Piosenka z takim tekstem zeby w radiu puszczali"
-  },
-  {
-    "artist": "K/DA",
-    "songName": "THE BADDEST wyk.: (G)I-DLE, Bea Miller, Wolftyla (oficjalny filmik z tekstem piosenki)"
-  },
-  {
-    "artist": "Wierni",
-    "songName": "Parę tekstów"
-  },
-  {
-    "artist": "Butelka",
-    "songName": "Liga Polskich Rodzin"
-  },
-  {
-    "artist": "Tomcio",
-    "songName": "Thunder (PEŁEN TEKST)"
-  },
-  {
-    "artist": "mati topur & mateusz produkuje",
-    "songName": "Nie rozumiem tekstu"
-  },
-  {
-    "artist": "Akurat",
-    "songName": "Demo (poprawny tekst)"
-  },
-  {
-    "artist": "Raper Pawlak i Walbrzych Eskadra",
-    "songName": "Godziny wbite w tekst"
-  },
-  {
-    "artist": "Legion",
-    "songName": "Legiony Polskie"
-  },
-  {
-    "artist": "Pozytywnie albo Wcale",
-    "songName": "Polskie Dziewczyny"
-  },
-  {
-    "artist": "Sztywny Pal Azji",
-    "songName": "Polscy Ch"
-  },
-  {
-    "artist": "ROKETS",
-    "songName": "POLSKIE PANIE"
-  },
-  {
-    "artist": "SELFIE",
-    "songName": "Polskie Chłopaki"
-  },
-  {
-    "artist": "Long & Junior",
-    "songName": "Polskie Party"
-  },
-  {
-    "artist": "Joda",
-    "songName": "Polskie Miami"
-  },
-  {
-    "artist": "Bahamas",
-    "songName": "Polskie Dziewczyny"
-  },
-  {
-    "artist": "Czerwone Gitary",
-    "songName": "Polskie dziewczyny"
-  },
-  {
-    "artist": "Voyager",
-    "songName": "Polskie Dziewczyny"
-  },
-  {
-    "artist": "Verba",
-    "songName": "Polskie gwiazdy"
-  },
-  {
-    "artist": "Kabaret Elita",
-    "songName": "Polskie strzechy"
-  },
-  {
-    "artist": "K.A.S.A.",
-    "songName": "Polscy biali"
-  },
-  {
-    "artist": "The junkers",
-    "songName": "Polscy kibice"
-  },
-  {
-    "artist": "Taco Hemingway",
-    "songName": "POLSKIE TANGO"
-  },
-  {
-    "artist": "Piwnica pod Baranami",
-    "songName": "Betlejem Polskie"
-  },
-  {
-    "artist": "O.S.T.R.",
-    "songName": "Polskie komedie"
-  },
-  {
-    "artist": "LOVERBOY",
-    "songName": "Polskie święta"
-  },
-  {
-    "artist": "Anna Szałapak",
-    "songName": "Polskie Betlejem"
-  },
-  {
-    "artist": "Stanisława Celińska",
-    "songName": "Betlejem Polskie"
-  },
-  {
-    "artist": "WWO",
-    "songName": "Polskie realia"
-  },
-  {
-    "artist": "Vienio & Pele",
-    "songName": "Polskie realia"
-  },
-  {
-    "artist": "Rest (Dixon37)",
-    "songName": "Chwast Polskich Głośników (BEDOES DISS)"
-  },
-  {
-    "artist": "Piosenki dla Dzieci",
-    "songName": "Nasze polskie ABC"
-  },
-  {
-    "artist": "Verba",
-    "songName": "Nasze polskie gwiazdy"
-  },
-  {
-    "artist": "Bedoes & Kubi Producent",
-    "songName": "Kwiat Polskiej Młodzieży"
-  },
-  {
-    "artist": "Marcin Macuk & Krzysztof Zalewski",
-    "songName": "Cichosza (Legendy Polskie)"
-  },
-  {
-    "artist": "OjGeniusz",
-    "songName": "Wspomnienie polskiego żula"
-  },
-  {
-    "artist": "Pogodno",
-    "songName": "Piosenka o"
-  },
-  {
-    "artist": "Andrzej Rybiński",
-    "songName": "Dlaczego dziś nikt nie pisze takich piosenek"
-  },
-  {
-    "artist": "Różowe Okulary",
-    "songName": "Piosenka Wakacyjna"
-  },
-  {
-    "artist": "Ani Mru Mru",
-    "songName": "Czeska piosenka"
-  },
-  {
-    "artist": "Nieznani",
-    "songName": "Piosenka okazjonalna"
-  },
-  {
-    "artist": "Siksa",
-    "songName": "Piosenka 0 (ft. Wacław Zimpel)"
-  },
-  {
-    "artist": "Paweł Kieler",
-    "songName": "Gdyby Podręcznik HiT był piosenką"
-  },
-  {
-    "artist": "IRA",
-    "songName": "Piosenka"
-  },
-  {
-    "artist": "Variete",
-    "songName": "Piosenka"
-  },
-  {
-    "artist": "Bullet i NZNŻ",
-    "songName": "Murem za polskim mundurem"
-  },
-  {
-    "artist": "Diesel Boy",
-    "songName": "Piosenka"
-  },
-  {
-    "artist": "Miros",
-    "songName": "Piosenka"
-  },
-  {
-    "artist": "T.Love",
-    "songName": "Piosenka"
-  },
-  {
-    "artist": "CETI",
-    "songName": "Piosenka"
-  },
-  {
-    "artist": "T.Love",
-    "songName": "Piosenka"
-  },
-  {
-    "artist": "Marek Grechuta",
-    "songName": "Piosenka"
-  },
-  {
-    "artist": "Po Drugiej Stronie Ulicy",
-    "songName": "Piosenka"
-  },
-  {
-    "artist": "Natalia Kukulska",
-    "songName": "Piosenka"
-  },
-  {
-    "artist": "Cool Kids Of Death",
-    "songName": "Piosenki bez refren"
-  },
-  {
-    "artist": "Da Vosk Docta",
-    "songName": "Parę Piosenek (feat. Jetlagz)"
-  },
-  {
-    "artist": "Kult",
-    "songName": "Z Archiwum Polskiego Jazzu"
-  },
-  {
-    "artist": "Adonis",
-    "songName": "Polskie dziewczyny jak maliny"
-  },
-  {
-    "artist": "Cleo",
-    "songName": "POLSKIE MEXICO (ft. LEXY CHAPLIN)"
-  },
-  {
-    "artist": "Andrzej Rosiewicz",
-    "songName": "Najwięcej witaminy (mają polskie dziewczyny)"
-  },
-  {
-    "artist": "DIOX HIFI",
-    "songName": "Polskie nagrania (prod. SirMich)"
-  },
-  {
-    "artist": "kukon & deys",
-    "songName": "Polski Blok, Polskie Flow"
-  },
-  {
-    "artist": "Patriotyczne",
-    "songName": "Cześć polskiej ziemi, cześć"
-  },
-  {
-    "artist": "Dwa Sławy",
-    "songName": "Polskie Nagrania 2.0"
-  },
-  {
-    "artist": "Kajman, Młody M, Hukos, Cira, Zeus, Jopel, Sulin, Bezczel",
-    "songName": "Kupuję Polskie Rap Płyty"
-  },
-  {
-    "artist": "Noize from Dust",
-    "songName": "Szanta (feat. Polskie Karate)"
-  },
-  {
-    "artist": "Paweł Piotrowski, Ela Półtorak",
-    "songName": "Mroźna cisza - najpiękniejsze kolędy polskie"
-  },
-  {
-    "artist": "BeCeKa",
-    "songName": "Polskie Privet Drive (feat. Filipek)"
-  },
-  {
-    "artist": "VitoWS",
-    "songName": "Murem za polskim mundurem"
-  },
-  {
-    "artist": "Pod Budą",
-    "songName": "Piosenka na mandolin"
-  },
-  {
-    "artist": "filipek x psr",
-    "songName": "Jak w piosence"
-  },
-  {
-    "artist": "The Bill",
-    "songName": "Piosenka o Wi"
-  },
-  {
-    "artist": "Monika Węgiel",
-    "songName": "Piosenka na pogodę"
-  },
-  {
-    "artist": "De Mono",
-    "songName": "Piosenka O Okularnikach"
-  },
-  {
-    "artist": "Marika & Maleo Reggae Rockers",
-    "songName": "Piosenka o Wojtku"
-  },
-  {
-    "artist": "Trzeci Oddech Kaczuchy",
-    "songName": "Piosenka o okularnikach"
-  },
-  {
-    "artist": "Kazimiera Utrata",
-    "songName": "Piosenka o okularnikach"
-  },
-  {
-    "artist": "Kabaret M",
-    "songName": "Pojedynek - Piosenka ko"
-  },
-  {
-    "artist": "Sylwia Frączek",
-    "songName": "Piosenka dla nowożeńców"
-  },
-  {
-    "artist": "Czesław Śpiewa",
-    "songName": "Mieszko i Dobrawa Jako Początek Państwa Polskiego"
-  }
+  [
+    {
+      "artist": "Piosenki dla Dzieci",
+      "songName": "Radiowe nuty (Radiowe nutki)"
+    }
+  ],
+  [
+    {
+      "artist": "Zenek Kupatasa",
+      "songName": "Darmowe przytulasy"
+    }
+  ],
+  [
+    {
+      "artist": "Płomień 81",
+      "songName": "Tekst"
+    }
+  ],
+  [
+    {
+      "artist": "Zelo PTP",
+      "songName": "Ślizgam się tekst"
+    }
+  ],
+  [
+    {
+      "artist": "Owal/Emcedwa feat. Dj-Ean",
+      "songName": "Pliki i teksty"
+    }
+  ],
+  [
+    {
+      "artist": "Rembol",
+      "songName": "Piosenka z tekstów z OME.TV"
+    }
+  ],
+  [
+    {
+      "artist": "Bayer Full",
+      "songName": "Polskie kwiaty"
+    }
+  ],
+  [
+    {
+      "artist": "SOLEO & Talisman",
+      "songName": "Polskie Maniury"
+    }
+  ],
+  [
+    {
+      "artist": "Seweryn Krajewski",
+      "songName": "Polskie"
+    }
+  ],
+  [
+    {
+      "artist": "Flexxip",
+      "songName": "Teksty do beat"
+    }
+  ],
+  [
+    {
+      "artist": "Piosenki dla Dzieci",
+      "songName": "Radiowe nuty (Radiowe nutki)"
+    }
+  ],
+  [
+    {
+      "artist": "Zenek Kupatasa",
+      "songName": "Darmowe przytulasy"
+    }
+  ],
+  [
+    {
+      "artist": "Płomień 81",
+      "songName": "Tekst"
+    }
+  ],
+  [
+    {
+      "artist": "Zelo PTP",
+      "songName": "Ślizgam się tekst"
+    }
+  ],
+  [
+    {
+      "artist": "Owal/Emcedwa feat. Dj-Ean",
+      "songName": "Pliki i teksty"
+    }
+  ],
+  [
+    {
+      "artist": "Rembol",
+      "songName": "Piosenka z tekstów z OME.TV"
+    }
+  ],
+  [
+    {
+      "artist": "Bayer Full",
+      "songName": "Polskie kwiaty"
+    }
+  ],
+  [
+    {
+      "artist": "SOLEO & Talisman",
+      "songName": "Polskie Maniury"
+    }
+  ],
+  [
+    {
+      "artist": "Seweryn Krajewski",
+      "songName": "Polskie"
+    }
+  ],
+  [
+    {
+      "artist": "Flexxip",
+      "songName": "Teksty do beat"
+    }
+  ]
 ]
