@@ -4,7 +4,7 @@ import requests
 import os
 
 class CitSong():
-    def __init__(self, pageLimit:int = 1, filePath:str = 'data.json'):
+    def __init__(self, pageLimit:int = 1, filePath:str = os.path.dirname(__file__) + "/data.json"):
         self.pageLimit = pageLimit
         self.filePath = filePath
         if not os.path.exists(self.filePath):
@@ -25,22 +25,21 @@ class CitSong():
         for t, a, l in zip(title, artist, link):
             with open (self.filePath, 'r+', encoding="utf-8") as f:
                 oldData = json.load(f)
-                if [{"artist": a.text.split('- ')[1],
-                                 "songName": t.text,
-                                 "link": l["href"]}] not in oldData:
-                    oldData.append([{"artist": a.text.split('- ')[1],
-                                    "songName": t.text,
-                                    "link": l["href"]}])
+                newData = { "artist": a.text.split('- ')[1],
+                            "songName": t.text,
+                            "link": l["href"]}
+                if newData not in oldData:
+                    oldData.append(newData)
                 f.seek(0)
                 json.dump(oldData, f, indent=2, ensure_ascii=False)
 
     def eraseData(self):
-        os.remove('data.json')
+        os.remove(self.filePath)
         self.makeFile()
         
 
-    def makeFile(self, name:str = 'data'):
-        with open(f'{name}.json', 'w+') as fp:
+    def makeFile(self):
+        with open(self.filePath, 'w+') as fp:
             d = []
             json.dump(d, fp)
             pass
@@ -54,7 +53,7 @@ class CitSong():
         # self.eraseData()
         
 if __name__ == "__main__":
-    model = CitSong(3, 'data.json')
+    model = CitSong(3)
     model()
 
 
