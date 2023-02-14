@@ -25,9 +25,12 @@ class CitSong():
         for t, a, l in zip(title, artist, link):
             with open (self.filePath, 'r+', encoding="utf-8") as f:
                 oldData = json.load(f)
-                oldData.append([{"artist": a.text.split('- ')[1],
-                                "songName": t.text,
-                                "link": "https://teksciory.interia.pl" + l["href"]}])
+                if [{"artist": a.text.split('- ')[1],
+                                 "songName": t.text,
+                                 "link": l["href"]}] not in oldData:
+                    oldData.append([{"artist": a.text.split('- ')[1],
+                                    "songName": t.text,
+                                    "link": l["href"]}])
                 f.seek(0)
                 json.dump(oldData, f, indent=2, ensure_ascii=False)
 
@@ -44,8 +47,10 @@ class CitSong():
 
     def __call__(self):
         for p in range(self.pageLimit):
-            self.storeData(self.getData(p)[0], self.getData(p)[1], self.getData(p)[2])
-        print("Finished!")
+            t, a, l = self.getData(p)
+            self.storeData(t, a, l)
+            print(f"Done page {p + 1}!")
+        print("\nFinished!")
         # self.eraseData()
         
 if __name__ == "__main__":
