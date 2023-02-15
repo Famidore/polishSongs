@@ -4,20 +4,28 @@ import requests
 import os
 
 class CitSong():
-    def __init__(self, pageLimit:int = 1, filePath:str = os.path.dirname(__file__) + "/data.json"):
+    def __init__(self, pageLimit:int = 2, filePath:str = os.path.dirname(__file__) + "/data.json", citiesPath:str = os.path.dirname(__file__) + "/cities.json"):
         self.pageLimit = pageLimit
         self.filePath = filePath
+        self.citiesPath = citiesPath
+
         if not os.path.exists(self.filePath):
             self.makeFile()
 
+        try:
+            with open(self.citiesPath, 'r+', encoding="utf-8") as c:
+                self.citiesData = json.load(c)
+        except FileNotFoundError:
+            raise FileNotFoundError("File not found!") from None
+            
     def getData(self, page:int):
         self.url = f'https://teksciory.interia.pl/szukaj?page={page + 1}&q=darmowe+teksty+i+nuty+polskich+piosenek&t=lyric&sort=score&dr=all'
         pageContent = requests.get(self.url, timeout=8).text
 
-        self.soup = BeautifulSoup(pageContent, 'html5lib')
-        title = self.soup.find_all(class_="title d-md-inline")
-        artist = self.soup.find_all(class_="artist -inline")
-        link = self.soup.find_all(class_="title d-md-inline", href=True)
+        soup = BeautifulSoup(pageContent, 'html5lib')
+        title = soup.find_all(class_="title d-md-inline")
+        artist = soup.find_all(class_="artist -inline")
+        link = soup.find_all(class_="title d-md-inline", href=True)
 
         return (title, artist, link)
 
@@ -28,10 +36,22 @@ class CitSong():
                 newData = { "artist": a.text.split('- ')[1],
                             "songName": t.text,
                             "link": l["href"]}
+                # self.getText(l)
+
                 if newData not in oldData:
                     oldData.append(newData)
                 f.seek(0)
                 json.dump(oldData, f, indent=2, ensure_ascii=False)
+
+    def getText(self, link):
+        pageContent = requests.get('https://teksciory.interia.pl' + link["href"], timeout=8).text
+        soup = BeautifulSoup(pageContent, 'html5lib')
+
+        textData = soup.find(class_="lyrics--text").text
+        return textData
+
+    def findNames(self, textData:str):
+        citiesData = json.load(self.citiesPath)
 
     def eraseData(self):
         os.remove(self.filePath)
@@ -43,6 +63,7 @@ class CitSong():
             d = []
             json.dump(d, fp)
             pass
+
 
     def __call__(self):
         for p in range(self.pageLimit):
