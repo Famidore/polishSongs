@@ -10,12 +10,12 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(445, 423);
+  createCanvas(900, 850);
   for (i in cityData) {
-    cities.push(new City(cityData[i]["x"], cityData[i]["y"], 1, cityData[i]["name"]))
+    cities.push(new City(cityData[i]["x"], cityData[i]["y"], 3, cityData[i]["name"]))
     for (j in mentionsData){
       if (mentionsData[j][0] == cities.at(-1).cityName){
-        cities.at(-1).size += 2;
+        cities.at(-1).size += 3;
         cities.at(-1).songArtist.push(mentionsData[j][1])
       }
     }

@@ -20,17 +20,17 @@ class City {
 
     calculatePos() {
         let newY = map(this.y, 14.07, 24.09, 0, width)
-        let newX = map(this.x, 49, 54.50, height, 30)
+        let newX = map(this.x, 49, 54.50, height, 50)
 
         return [newY, newX]
     }
 
     showInfo(mx, my){
         // print(dist(mx, my, this.x2, this.y2), this.cityName)
-        if (dist(mx, my, this.x2, this.y2) < this.size){
+        if (dist(mx, my, this.x2, this.y2) < this.size/2){
             fill(0)
             textAlign(CENTER, CENTER)
-            textSize(this.size)
+            textSize(this.size + 5)
             text(this.cityName, this.x2, this.y2)
         }
     }
