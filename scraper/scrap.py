@@ -6,11 +6,12 @@ import jellyfish
 import time
 
 class CitSong():
-    def __init__(self, pageLimit:int = 2, filePath:str = os.path.dirname(__file__) + "/data.json", citiesPath:str = os.path.dirname(__file__) + "/cities.json", mentionsPath:str = os.path.dirname(__file__) + "/mentions.json"):
+    def __init__(self, start:int = 0, pageLimit:int = 2, filePath:str = os.path.dirname(__file__) + "/data.json", citiesPath:str = os.path.dirname(__file__) + "/cities.json", mentionsPath:str = os.path.dirname(__file__) + "/mentions.json"):
         self.pageLimit = pageLimit
         self.filePath = filePath
         self.citiesPath = citiesPath
         self.mentionsPath = mentionsPath
+        self.start = start
         self.citiesNames = []
 
         print('21')
@@ -31,9 +32,13 @@ class CitSong():
             
     def getData(self, page:int):
         for i in range(5):
-            time.sleep(2)
-            self.url = f'https://teksciory.interia.pl/szukaj?page={page + 1}&q=darmowe+teksty+i+nuty+polskich+piosenek&t=lyric&sort=score&dr=all'
-            pageContent = requests.get(self.url, timeout=20).text
+            try:
+                time.sleep(2)
+                self.url = f'https://teksciory.interia.pl/szukaj?page={page + 1}&q=darmowe+teksty+i+nuty+polskich+piosenek&t=lyric&sort=score&dr=all'
+                pageContent = requests.get(self.url, timeout=300).text
+
+            except requests.exceptions.Timeout:
+                pass
 
             if pageContent:
                 break
@@ -67,7 +72,7 @@ class CitSong():
         for i in range(5):
             try:
                 time.sleep(1)
-                pageContent = requests.get('https://teksciory.interia.pl' + link["href"], timeout=20).text
+                pageContent = requests.get('https://teksciory.interia.pl' + link["href"], timeout=300).text
                 soup = BeautifulSoup(pageContent, 'html5lib')
 
                 textData = soup.find(class_="lyrics--text").text
@@ -116,7 +121,7 @@ class CitSong():
 
 
     def __call__(self):
-        for p in range(self.pageLimit):
+        for p in range(self.start, self.pageLimit):
             t, a, l = self.getData(p)
             self.storeData(t, a, l)
             print(f"\033[92m \nDone page {p + 1}!\n \033[0m")
@@ -125,7 +130,7 @@ class CitSong():
       
 if __name__ == "__main__":
     # start_time = time.perf_counter()
-    model = CitSong(10000)
+    model = CitSong(start=141, pageLimit=10000)
     model()
     # end_time = time.perf_counter()
     # total_time = end_time - start_time

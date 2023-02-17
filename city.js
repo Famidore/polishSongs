@@ -24,4 +24,14 @@ class City {
 
         return [newY, newX]
     }
+
+    showInfo(mx, my){
+        // print(dist(mx, my, this.x2, this.y2), this.cityName)
+        if (dist(mx, my, this.x2, this.y2) < this.size){
+            fill(0)
+            textAlign(CENTER, CENTER)
+            textSize(this.size)
+            text(this.cityName, this.x2, this.y2)
+        }
+    }
 }
