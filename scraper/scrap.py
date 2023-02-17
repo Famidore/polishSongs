@@ -3,6 +3,7 @@ import json
 import requests
 import os
 import jellyfish
+import time
 
 class CitSong():
     def __init__(self, pageLimit:int = 2, filePath:str = os.path.dirname(__file__) + "/data.json", citiesPath:str = os.path.dirname(__file__) + "/cities.json"):
@@ -63,7 +64,7 @@ class CitSong():
         for index, cName in enumerate(self.citiesNames):
             for word in textData.split():
                 prob = self.calcSimillarity(cName, word)
-                if (len(word) > 3) and (word[0] == cName[0]) and prob > 0.96:
+                if (word[0].isupper()) and (len(word) > 3) and (word[0] == cName[0]) and (prob > 0.96):
                     mentioned.append([index, cName])
                     print(f"Found Match with {cName} and {word}, probability: {prob}")
         return mentioned
@@ -99,10 +100,15 @@ class CitSong():
             self.storeData(t, a, l)
             print(f"Done page {p + 1}!")
         print("\nFinished!")
-        self.eraseData()
-        
+        # self.eraseData()
+      
 if __name__ == "__main__":
-    model = CitSong(10)
+    # start_time = time.perf_counter()
+    model = CitSong(25)
     model()
+    # end_time = time.perf_counter()
+    # total_time = end_time - start_time
+    # print(total_time)
 
 
+# print(jellyfish.jaro_winkler_similarity("Warszawa", "Warszawkaa"))
