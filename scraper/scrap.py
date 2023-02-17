@@ -6,14 +6,20 @@ import jellyfish
 import time
 
 class CitSong():
-    def __init__(self, pageLimit:int = 2, filePath:str = os.path.dirname(__file__) + "/data.json", citiesPath:str = os.path.dirname(__file__) + "/cities.json"):
+    def __init__(self, pageLimit:int = 2, filePath:str = os.path.dirname(__file__) + "/data.json", citiesPath:str = os.path.dirname(__file__) + "/cities.json", mentionsPath:str = os.path.dirname(__file__) + "/mentions.json"):
         self.pageLimit = pageLimit
         self.filePath = filePath
         self.citiesPath = citiesPath
+        self.mentionsPath = mentionsPath
         self.citiesNames = []
 
+        print('21')
+
         if not os.path.exists(self.filePath):
-            self.makeFile()
+            self.makeFile(self.filePath)
+
+        if not os.path.exists(self.mentionsPath):
+            self.makeFile(self.mentionsPath)
 
         try:
             with open(self.citiesPath, 'r+', encoding="utf-8") as c:
@@ -24,8 +30,13 @@ class CitSong():
             raise FileNotFoundError("File not found!") from None
             
     def getData(self, page:int):
-        self.url = f'https://teksciory.interia.pl/szukaj?page={page + 1}&q=darmowe+teksty+i+nuty+polskich+piosenek&t=lyric&sort=score&dr=all'
-        pageContent = requests.get(self.url, timeout=8).text
+        for i in range(5):
+            time.sleep(2)
+            self.url = f'https://teksciory.interia.pl/szukaj?page={page + 1}&q=darmowe+teksty+i+nuty+polskich+piosenek&t=lyric&sort=score&dr=all'
+            pageContent = requests.get(self.url, timeout=20).text
+
+            if pageContent:
+                break
 
         soup = BeautifulSoup(pageContent, 'html5lib')
         title = soup.find_all(class_="title d-md-inline")
@@ -53,10 +64,19 @@ class CitSong():
                 json.dump(oldData, f, indent=2, ensure_ascii=False)
 
     def getText(self, link):
-        pageContent = requests.get('https://teksciory.interia.pl' + link["href"], timeout=8).text
-        soup = BeautifulSoup(pageContent, 'html5lib')
+        for i in range(5):
+            try:
+                time.sleep(1)
+                pageContent = requests.get('https://teksciory.interia.pl' + link["href"], timeout=20).text
+                soup = BeautifulSoup(pageContent, 'html5lib')
 
-        textData = soup.find(class_="lyrics--text").text
+                textData = soup.find(class_="lyrics--text").text
+
+                if textData:
+                    break
+
+            except requests.exceptions.Timeout:
+                pass
         return textData
 
     def findNames(self, textData:str):
@@ -66,16 +86,15 @@ class CitSong():
                 prob = self.calcSimillarity(cName, word)
                 if (word[0].isupper()) and (len(word) > 3) and (word[0] == cName[0]) and (prob > 0.96):
                     mentioned.append([index, cName])
-                    print(f"Found Match with {cName} and {word}, probability: {prob}")
+                    print(f"\t\tFound Match with\t {cName} and {word}, \tprobability: {prob:.3f}")
         return mentioned
 
     def saveMentions(self, songTitle:str, artist:str, cityName:str, mentionsDataPath:str = os.path.dirname(__file__) + "/mentions.json"):
         with open(mentionsDataPath, "r+", encoding="utf-8") as s:
             cData = json.load(s)
-            cData.append({"cityName" : cityName,
-                          "mentionedIn" : f"{songTitle} by {artist}"})
+            cData.append((cityName, artist))
             s.seek(0)
-            json.dump(cData, s, indent=2, ensure_ascii=False)
+            json.dump(cData, s, indent=1, ensure_ascii=False)
 
 
     def calcSimillarity(self, cityName:str, word:str):
@@ -85,12 +104,14 @@ class CitSong():
     def eraseData(self):
         os.remove(self.filePath)
         self.makeFile()
+        print("Erased Data!")
         
 
-    def makeFile(self):
-        with open(self.filePath, 'w+') as fp:
+    def makeFile(self, path):
+        with open(path, 'w+') as fp:
             d = []
             json.dump(d, fp)
+            print(f'Created file at {path}')
             pass
 
 
@@ -98,13 +119,13 @@ class CitSong():
         for p in range(self.pageLimit):
             t, a, l = self.getData(p)
             self.storeData(t, a, l)
-            print(f"Done page {p + 1}!")
+            print(f"\033[92m \nDone page {p + 1}!\n \033[0m")
         print("\nFinished!")
         # self.eraseData()
       
 if __name__ == "__main__":
     # start_time = time.perf_counter()
-    model = CitSong(25)
+    model = CitSong(10000)
     model()
     # end_time = time.perf_counter()
     # total_time = end_time - start_time
