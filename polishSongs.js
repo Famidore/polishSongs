@@ -9,7 +9,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowHeight*1.05, windowHeight);
+  createCanvas(min(windowHeight, windowWidth), min(windowHeight, windowWidth));
   for (i in cityData) {
     cities.push(new City(cityData[i]["x"], cityData[i]["y"], 3, cityData[i]["name"]));
     for (j in mentionsData) {
@@ -41,4 +41,5 @@ function draw() {
     i.showArtists(mouseX, mouseY)
   }
 
+  
 }
