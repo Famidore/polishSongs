@@ -2,6 +2,7 @@ let bg, mentionsData, cityData
 let cities = []
 let blackList = ['Dobra', 'Bardo', 'Police']
 
+
 function preload() {
   bg = loadImage('img/background2.png')
   mentionsData = loadJSON('scraper\\mentions.json')
@@ -11,7 +12,7 @@ function preload() {
 function setup() {
   createCanvas(min(windowHeight, windowWidth), min(windowHeight, windowWidth));
   for (i in cityData) {
-    cities.push(new City(cityData[i]["x"], cityData[i]["y"], 3, cityData[i]["name"]));
+    cities.push(new City(cityData[i]["x"], cityData[i]["y"], 5, cityData[i]["name"]));
     for (j in mentionsData) {
       if (mentionsData[j][0] == cities.at(-1).cityName && !(blackList.includes(mentionsData[j][0]))) {
         cities.at(-1).size += 2;
@@ -42,4 +43,12 @@ function draw() {
   }
 
   
+}
+
+
+function windowResized() {
+  resizeCanvas(min(windowHeight, windowWidth), min(windowHeight, windowWidth));
+  for (i of cities){
+    i.calculatePos()
+  }
 }

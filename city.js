@@ -9,9 +9,10 @@ class City {
         this.cityName = tempCityName;
         this.songName = [];
         this.songArtist = [];
-        this.x2 = this.calculatePos()[0]
-        this.y2 = this.calculatePos()[1]
 
+        this.startSize = min(windowHeight, windowWidth)
+
+        this.calculatePos()
     }
 
     show() {
@@ -26,26 +27,22 @@ class City {
     }
 
     calculatePos() {
-        let newY = map(this.y, 14.117, 24.15, 0, width)
-        let newX = map(this.x, 49, 54.8333, height, 0)
-
-        return [newY, newX]
+        this.x2 = map(this.y, 14.117, 24.15, 0, width)
+        this.y2 = map(this.x, 49, 54.8333, height, 0)
     }
 
     showInfo(mx, my) {
-        // print(dist(mx, my, this.x2, this.y2), this.cityName)
         if (dist(mx, my, this.x2, this.y2) < this.size / 2 || this.active) {
             fill(0)
             textAlign(CENTER, BASELINE)
-            textSize(this.size + 5)
+            textSize(this.size + 3)
             text(this.cityName, this.x2, this.y2)
         }
     }
 
-    showArtists(mx, my){
-        if (dist(mx, my, this.x2, this.y2) < this.size / 2 && this.active && mouseIsPressed){
+    showArtists(mx, my) {
+        if (dist(mx, my, this.x2, this.y2) < this.size / 2 && this.active && mouseIsPressed) {
             print(this.songArtist)
-
         }
     }
 }
