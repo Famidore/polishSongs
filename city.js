@@ -26,8 +26,8 @@ class City {
     }
 
     calculatePos() {
-        let newY = map(this.y, 14.07, 24.09, 0, width)
-        let newX = map(this.x, 49, 54.50, height, 60)
+        let newY = map(this.y, 14.117, 24.15, 0, width)
+        let newX = map(this.x, 49, 54.8333, height, 0)
 
         return [newY, newX]
     }

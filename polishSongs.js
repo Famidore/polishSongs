@@ -2,8 +2,6 @@ let bg, mentionsData, cityData
 let cities = []
 let blackList = ['Dobra', 'Bardo', 'Police']
 
-// ratio = 1,33
-
 function preload() {
   bg = loadImage('img/background2.png')
   mentionsData = loadJSON('scraper\\mentions.json')
@@ -11,7 +9,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(890, 846);
+  createCanvas(windowHeight*1.05, windowHeight);
   for (i in cityData) {
     cities.push(new City(cityData[i]["x"], cityData[i]["y"], 3, cityData[i]["name"]));
     for (j in mentionsData) {
@@ -22,14 +20,13 @@ function setup() {
       }
     }
   }
-
-
+  
+  
   cities.sort(function(a, b) {
     return b.size - a.size;
 });
 
-let tempCities = cities.slice();
-for (i of tempCities.slice(0, 10)){
+for (i of cities.slice(0, 10)){
   print(i.size, i.cityName)
 }
 }
