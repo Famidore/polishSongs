@@ -4,6 +4,8 @@ class City {
         this.y = tempY;
         this.size = tempSize;
 
+        this.active = false
+
         this.cityName = tempCityName;
         this.songName = [];
         this.songArtist = [];
@@ -13,25 +15,37 @@ class City {
     }
 
     show() {
-        fill(255, 0, 0);
+        if (this.active) {
+            fill(255, 0, 0);
+        } else {
+            fill(0)
+        }
+
         noStroke();
         ellipse(this.x2, this.y2, this.size, this.size);
     }
 
     calculatePos() {
         let newY = map(this.y, 14.07, 24.09, 0, width)
-        let newX = map(this.x, 49, 54.50, height, 50)
+        let newX = map(this.x, 49, 54.50, height, 60)
 
         return [newY, newX]
     }
 
-    showInfo(mx, my){
+    showInfo(mx, my) {
         // print(dist(mx, my, this.x2, this.y2), this.cityName)
-        if (dist(mx, my, this.x2, this.y2) < this.size/2){
+        if (dist(mx, my, this.x2, this.y2) < this.size / 2 || this.active) {
             fill(0)
-            textAlign(CENTER, CENTER)
+            textAlign(CENTER, BASELINE)
             textSize(this.size + 5)
             text(this.cityName, this.x2, this.y2)
+        }
+    }
+
+    showArtists(mx, my){
+        if (dist(mx, my, this.x2, this.y2) < this.size / 2 && this.active && mouseIsPressed){
+            print(this.songArtist)
+
         }
     }
 }

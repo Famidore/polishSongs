@@ -14,7 +14,7 @@ class CitSong():
         self.start = start
         self.citiesNames = []
 
-        print('21')
+        print(f'Searching from {self.start} to {self.pageLimit} pages!')
 
         if not os.path.exists(self.filePath):
             self.makeFile(self.filePath)
@@ -32,6 +32,7 @@ class CitSong():
             
     def getData(self, page:int):
         for i in range(5):
+            pageContent = None
             try:
                 time.sleep(2)
                 self.url = f'https://teksciory.interia.pl/szukaj?page={page + 1}&q=darmowe+teksty+i+nuty+polskich+piosenek&t=lyric&sort=score&dr=all'
@@ -70,6 +71,7 @@ class CitSong():
 
     def getText(self, link):
         for i in range(5):
+            textData = None
             try:
                 time.sleep(1)
                 pageContent = requests.get('https://teksciory.interia.pl' + link["href"], timeout=300).text
@@ -130,7 +132,7 @@ class CitSong():
       
 if __name__ == "__main__":
     # start_time = time.perf_counter()
-    model = CitSong(start=141, pageLimit=10000)
+    model = CitSong(start=20174, pageLimit=100000)
     model()
     # end_time = time.perf_counter()
     # total_time = end_time - start_time
