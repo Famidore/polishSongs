@@ -60,7 +60,6 @@ class CitSong():
                             "link": l["href"]}
 
                 for n in self.findNames(self.getText(l)):
-                    # print(t.text)
                     self.saveMentions(t.text, a.text.split('- ')[1], n[1])
 
                 if newData not in oldData:
@@ -106,6 +105,8 @@ class CitSong():
 
     def calcSimillarity(self, cityName:str, word:str):
         # print(jellyfish.jaro_winkler_similarity(cityName.lower(), word.lower()))
+
+        #regex ☠️
         return jellyfish.jaro_winkler_similarity(cityName.lower(), word.lower())
 
     def eraseData(self):
@@ -131,12 +132,6 @@ class CitSong():
         # self.eraseData()
       
 if __name__ == "__main__":
-    # start_time = time.perf_counter()
     model = CitSong(start=20174, pageLimit=100000)
     model()
-    # end_time = time.perf_counter()
-    # total_time = end_time - start_time
-    # print(total_time)
 
-
-# print(jellyfish.jaro_winkler_similarity("Warszawa", "Warszawkaa"))
