@@ -41,7 +41,7 @@ class City {
     }
 
     showArtists(mx, my) {
-        if (dist(mx, my, this.x2, this.y2) < this.size / 2 && this.active && mouseIsPressed) {
+        if (dist(mx, my, this.x2, this.y2) < this.size / 2 && this.active) {
             print(this.songArtist)
         }
     }
