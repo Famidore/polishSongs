@@ -1,8 +1,8 @@
 let bg, mentionsData, cityData;
 let cities = [];
-let blackList = ['Dobra', 'Bardo', 'Police'];
-let mentionScore = 2;
-let baseScore = 5;
+let blackList = ['Dobra', 'Bardo', 'Police', 'Wieleń', 'Miastko'];
+let mentionScore = 1;
+let baseScore = 3;
 
 
 function preload() {
