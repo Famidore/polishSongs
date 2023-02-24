@@ -28,7 +28,7 @@ class City {
 
     calculatePos() {
         this.x2 = map(this.y, 14.117, 24.15, 0, width)
-        this.y2 = map(this.x, 49, 54.8333, height, 0)
+        this.y2 = map(this.x, 49, 54.8333, height, 7)
     }
 
     showInfo(mx, my) {
